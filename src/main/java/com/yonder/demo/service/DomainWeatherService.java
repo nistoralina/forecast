@@ -31,8 +31,7 @@ public class DomainWeatherService {
                 weatherApiService.retrieveWeatherDataList(filteredCities, weatherDataUrl),
                 Flux.fromIterable(filteredCities),
                 (weatherData , city) -> {
-                    var weatherResponseDto = calculateAverage(city, weatherData.getForecast());
-                    return weatherResponseDto;
+                    return calculateAverage(city, weatherData.getForecast());
                 });
 
         return weatherDataResponse;

@@ -23,7 +23,7 @@ public class WeatherApiService {
                 baseUrl(weatherApiUrl)
                 .build()
                 .get()
-                .uri("/city", cityName)
+                .uri( cityName)
                 .retrieve()
                 .bodyToMono(WeatherData.class);
     }

@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WeatherResponseDto {
-    private String name;
-    private Double temperature;
-    private Double wind;
+public class ResultDto {
+    private List<WeatherResponseDto> result;
 }
