@@ -16,17 +16,19 @@ import java.util.List;
 @RequestMapping("/api/weather")
 public class WeatherController {
 
-   private DomainWeatherService domainWeatherService;
+    private final DomainWeatherService domainWeatherService;
 
     public WeatherController(DomainWeatherService domainWeatherService) {
         this.domainWeatherService = domainWeatherService;
     }
 
     @GetMapping()
-    public Mono<ResultDto> getWeatherForecastAverage(@RequestParam(name = "city") List<String> cities){
+    public Mono<ResultDto> getWeatherForecastAverage(@RequestParam(name = "city") List<String> cities) {
+
+        //Retrieve weather forecast responses for a list of cities
         Flux<WeatherResponseDto> weatherResponse = domainWeatherService.getWeatherResponseData(cities);
 
-        var weatherResponses= weatherResponse.collectList().map(ResultDto::new);
+        var weatherResponses = weatherResponse.collectList().map(ResultDto::new);
 
         return weatherResponses;
     }

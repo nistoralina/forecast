@@ -2,3 +2,6 @@ spring:
   config:
     import:
       - appConfig.properties
+server:
+  error:
+    include-stacktrace: never
