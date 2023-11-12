@@ -24,9 +24,10 @@ public class WeatherController {
 
     @GetMapping()
     public Mono<ResultDto> getWeatherForecastAverage(@RequestParam(name = "city") List<String> cities){
-
         Flux<WeatherResponseDto> weatherResponse = domainWeatherService.getWeatherResponseData(cities);
 
-        return weatherResponse.collectList().map(ResultDto::new);
+        var weatherResponses= weatherResponse.collectList().map(ResultDto::new);
+
+        return weatherResponses;
     }
 }

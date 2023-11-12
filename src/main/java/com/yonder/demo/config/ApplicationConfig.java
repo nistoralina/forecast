@@ -14,4 +14,5 @@ public class ApplicationConfig {
 
     private String weatherApiUrl;
     private List<String> allowedCities;
+    private String csvFilePath;
 }

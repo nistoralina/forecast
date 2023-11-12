@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WeatherResponseDto {
     private String name;
-    private Double temperature;
-    private Double wind;
+    private String temperature;
+    private String wind;
 }
